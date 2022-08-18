@@ -12,10 +12,21 @@ public class CadastroStep extends Browser {
     CadastroPage cadastroPage = new CadastroPage();
 
     @Test
-    public void cadastroComSucesso() {
+    public void cadastroComFotoComSucesso() {
         loginPage.clicarNoNaoPossuiCadastroBtn();
         cadastroPage.preencherNome();
-        cadastroPage.preencherEmail();
+        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherSenha();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.procurarAnexo();
+        cadastroPage.clicarNoCadastrarBtn();
+    }
+
+    @Test
+    public void cadastroSemFotoComSucesso() {
+        loginPage.clicarNoNaoPossuiCadastroBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailFaker();
         cadastroPage.preencherSenha();
         cadastroPage.preencherConfirmarSenha();
         cadastroPage.clicarNoCadastrarBtn();
@@ -30,6 +41,18 @@ public class CadastroStep extends Browser {
         cadastroPage.clicarNoCadastrarBtn();
 
         Assert.assertEquals(cadastroPage.campoNomeErro(), "Nome obrigatorio!");
+    }
+
+    @Test
+    public void cadastroComEmailExistente() {
+        loginPage.clicarNoNaoPossuiCadastroBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmail();
+        cadastroPage.preencherSenha();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.clicarNoCadastrarBtn();
+
+        Assert.assertEquals(cadastroPage.dadosIncorretos(), "Dados incorretos");
     }
 
     @Test

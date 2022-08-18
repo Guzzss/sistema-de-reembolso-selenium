@@ -1,5 +1,6 @@
 package util;
 
+import org.junit.After;
 import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -30,9 +31,9 @@ public class Browser {
 
     }
 
-    //    @After
-    //    public void finalizarBrowser() {
-    //        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // definir um tempo para iniciar
-    //        driver.quit();
-    //    }
+//        @After
+//        public void finalizarBrowser() {
+//            driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS); // definir um tempo para iniciar
+//            driver.quit();
+//        }
 }

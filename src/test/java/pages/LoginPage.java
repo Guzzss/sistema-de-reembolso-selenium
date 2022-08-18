@@ -13,7 +13,6 @@ public class LoginPage {
 
     public final static By emailErro = By.cssSelector("#root > section > div > form > div:nth-child(1) > small");
     public final static By senhaErro = By.cssSelector("#root > section > div > form > div:nth-child(2) > small");
-
     public final static By campoInvalido = By.cssSelector("#swal2-title");
 
 

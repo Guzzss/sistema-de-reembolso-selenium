@@ -1,6 +1,9 @@
 package util;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
+import java.util.concurrent.TimeUnit;
 
 public class BaseTest extends Elements{
 
@@ -22,6 +25,14 @@ public class BaseTest extends Elements{
     public static void clear(By by){
         waitElement(by);
         element(by).clear();
-
     }
+
+    public static void esperarElemento(By by){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(by));
+    }
+
+    public static void esperar(int tempo) {
+        driver.manage().timeouts().implicitlyWait(tempo, TimeUnit.SECONDS);
+    }
+
 }
