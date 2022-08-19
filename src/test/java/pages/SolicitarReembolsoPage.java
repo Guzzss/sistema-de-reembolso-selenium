@@ -14,6 +14,8 @@ public class SolicitarReembolsoPage {
 
     public final static By valorErroMsg = By.cssSelector("#root > section > div > form > div:nth-child(2) > small");
 
+    public final static By anexoErroMsg = By.cssSelector("#root > section > div > form > div:nth-child(3) > small");
+
     public void preencherTitulo() {
         BaseTest.sendKeys(titulo, "Teste de Reembolso");
     }
@@ -36,5 +38,9 @@ public class SolicitarReembolsoPage {
 
     public String valorErroMsg() {
         return BaseTest.getText(valorErroMsg);
+    }
+
+    public String anexoErroMsg() {
+        return BaseTest.getText(anexoErroMsg);
     }
 }

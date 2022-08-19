@@ -15,6 +15,7 @@ public class LoggedPage {
     public final static By confirmarExclusaoBtn = By.cssSelector("body > div.swal2-container.swal2-center.swal2-backdrop-show > div > div.swal2-actions > button.swal2-confirm.swal2-styled");
     public final static By tituloReembolso = By.cssSelector("#root > section > section > ul > li > span:nth-child(1)");
     public final static By toastMsg = By.cssSelector("#swal2-title");
+
 //    public final static By reembolsoDeletadoMsg = By.cssSelector("#swal2-title");
 
 
@@ -47,5 +48,7 @@ public class LoggedPage {
         BaseTest.click(confirmarExclusaoBtn);
     }
 
-//    public void
+    public void clicarNoSairBtn() {
+        BaseTest.click(sairBtn);
+    }
 }

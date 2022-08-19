@@ -21,6 +21,32 @@ public class LoginPage {
         BaseTest.sendKeys(emailCampo, "lol@dbccompany.com.br");
     }
 
+    ///  ///// ///// ///// ///// ///// ///// GESTOR
+    public void preencherEmailGestor() {
+        BaseTest.sendKeys(emailCampo, "QA@dbccompany.com.br");
+    }
+
+    public void preencherSenhaGestor() {
+        BaseTest.sendKeys(senhaCampo, "Sua@Senha!23");
+    }
+
+    ///// ///// ///// ///// ///// ///// //////FINANCEIRO
+
+    public void preencherEmailFinanceiro() {
+        BaseTest.sendKeys(emailCampo, "QAFinanceiro@dbccompany.com.br");
+    }
+    public void preencherSenhaFinanceiro() {
+        BaseTest.sendKeys(senhaCampo, "Sua@Senha!23");
+    }
+
+    ///// ///// ///// ///// ///// ///// /////ADMINISTRADOR
+    public void preencherEmailAdmin() {
+        BaseTest.sendKeys(emailCampo, "QaAdm@dbccompany.com.br");
+    }
+    public void preencherSenhaAdmin() {
+        BaseTest.sendKeys(senhaCampo, "Sua@Senha!23");
+    }
+
     public void preencherEmailInvalido() {
         BaseTest.sendKeys(emailCampo, "gdfghjdfighdfio@dbccompany.com.br");
     }

@@ -15,7 +15,7 @@ public class CadastroStep extends Browser {
     public void cadastroComFotoComSucesso() {
         loginPage.clicarNoNaoPossuiCadastroBtn();
         cadastroPage.preencherNome();
-        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherEmail();
         cadastroPage.preencherSenha();
         cadastroPage.preencherConfirmarSenha();
         cadastroPage.procurarAnexo();

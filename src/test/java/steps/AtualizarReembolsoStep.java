@@ -29,16 +29,21 @@ public class AtualizarReembolsoStep extends Browser {
         atualizarReembolsoPage.preencherTitulo();
         atualizarReembolsoPage.limparCampoValor();
         atualizarReembolsoPage.preencherValor();
+        atualizarReembolsoPage.limparCampoAnexo();
+        atualizarReembolsoPage.clicarNoAnexoBtn();
         atualizarReembolsoPage.clicarNoAtualizarReembolsoBtn();
     }
 
-//    @Test
-//    public void atualizarReembolsoSemPassarTitulo() {
-//        solicitarReembolsoStep.solicitarReembolsoComSucesso();
-//        loggedPage.clicarNoEditarReembolsoBtn();
-//        atualizarReembolsoPage.preencherValor();
-//        atualizarReembolsoPage.clicarNoAtualizarReembolsoBtn();
-//        Assert.assertEquals(atualizarReembolsoPage.tituloErroMsg(), "Título obrigatorio!");
-//    }
-
+    @Test
+    public void atualizarReembolsoSemPassarTitulo() {
+        solicitarReembolsoStep.solicitarReembolsoComSucesso();
+        loggedPage.clicarNoEditarReembolsoBtn();
+        atualizarReembolsoPage.limparCampoTitulo();
+        atualizarReembolsoPage.limparCampoValor();
+        atualizarReembolsoPage.preencherValor();
+        atualizarReembolsoPage.limparCampoAnexo();
+        atualizarReembolsoPage.clicarNoAnexoBtn();
+        atualizarReembolsoPage.clicarNoAtualizarReembolsoBtn();
+        Assert.assertEquals(atualizarReembolsoPage.tituloErroMsg(), "Título obrigatorio!");
+    }
 }

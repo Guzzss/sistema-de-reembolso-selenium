@@ -27,6 +27,35 @@ public class LoginStep extends Browser {
     }
 
     @Test
+    public void fazerLoginComoGestorComsucesso() {
+        loginPage.preencherEmailGestor();
+        loginPage.preencherSenhaGestor();
+        loginPage.clicarNoEntrarBtn();
+
+        Assert.assertEquals(loggedPage.bemVindoMsg(), "Bem vindo!");
+    }
+
+    public void fazerLoginComoGestor() {
+        loginPage.preencherEmailGestor();
+        loginPage.preencherSenhaGestor();
+        loginPage.clicarNoEntrarBtn();
+    }
+
+    @Test
+    public void fazerLoginComoFinanceiro() {
+        loginPage.preencherEmailFinanceiro();
+        loginPage.preencherSenhaFinanceiro();
+        loginPage.clicarNoEntrarBtn();
+    }
+
+    @Test
+    public void fazerLoginComoAdm() {
+        loginPage.preencherEmailAdmin();
+        loginPage.preencherSenhaAdmin();
+        loginPage.clicarNoEntrarBtn();
+    }
+
+    @Test
     public void fazerLoginSemPassarEmail() {
         loginPage.preencherSenha();
         loginPage.clicarNoEntrarBtn();
@@ -67,5 +96,7 @@ public class LoginStep extends Browser {
 
         Assert.assertEquals(loginPage.campoInvalido(), "Email ou Senha inválidos");
     }
+
+
 
 }

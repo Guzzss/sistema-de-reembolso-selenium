@@ -12,6 +12,16 @@ public class SolicitarReembolsoStep extends Browser {
     LoginStep loginStep = new LoginStep();
     SolicitarReembolsoPage solicitarReembolsoPage = new SolicitarReembolsoPage();
 
+
+    public void solicitarReembolso() {
+        loginStep.fazerLoginComSucesso();
+        loggedPage.clicarNoSolicitarReembolsoBtn();
+        solicitarReembolsoPage.preencherTitulo();
+        solicitarReembolsoPage.preencherValor();
+        solicitarReembolsoPage.clicarNoAnexoBtn();
+        solicitarReembolsoPage.clicarNoSolicitarReembolsoBtn();
+    }
+
     @Test
     public void solicitarReembolsoComSucesso() {
         loginStep.fazerLoginComSucesso();
@@ -33,7 +43,7 @@ public class SolicitarReembolsoStep extends Browser {
         solicitarReembolsoPage.preencherValor();
         solicitarReembolsoPage.clicarNoSolicitarReembolsoBtn();
 
-        Assert.assertEquals(loggedPage.tituloReembolso(), "Teste de Reembolso");
+        Assert.assertEquals(solicitarReembolsoPage.anexoErroMsg(), "Anexo obrigatório!");
     }
 
     @Test
