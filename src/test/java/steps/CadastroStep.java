@@ -2,24 +2,30 @@ package steps;
 
 import org.junit.Assert;
 import org.junit.Test;
-import pages.CadastroPage;
-import pages.LoginPage;
+import pages.*;
+import util.BaseTest;
 import util.Browser;
 
 public class CadastroStep extends Browser {
 
     LoginPage loginPage = new LoginPage();
     CadastroPage cadastroPage = new CadastroPage();
+    LoginStep loginStep = new LoginStep();
+    AdmPage admPage = new AdmPage();
+
+    LoggedPage loggedPage = new LoggedPage();
 
     @Test
     public void cadastroComFotoComSucesso() {
         loginPage.clicarNoNaoPossuiCadastroBtn();
         cadastroPage.preencherNome();
-        cadastroPage.preencherEmail();
+        cadastroPage.preencherEmailFaker();
         cadastroPage.preencherSenha();
         cadastroPage.preencherConfirmarSenha();
         cadastroPage.procurarAnexo();
         cadastroPage.clicarNoCadastrarBtn();
+        BaseTest.esperar(LoggedPage.nomeUsuario, "Gustavo");
+        Assert.assertEquals("Gustavo", loggedPage.nomeUsuario());
     }
 
     @Test
@@ -30,6 +36,8 @@ public class CadastroStep extends Browser {
         cadastroPage.preencherSenha();
         cadastroPage.preencherConfirmarSenha();
         cadastroPage.clicarNoCadastrarBtn();
+        BaseTest.esperar(LoggedPage.nomeUsuario, "Gustavo");
+        Assert.assertEquals("Gustavo", loggedPage.nomeUsuario());
     }
 
     @Test
@@ -52,7 +60,7 @@ public class CadastroStep extends Browser {
         cadastroPage.preencherConfirmarSenha();
         cadastroPage.clicarNoCadastrarBtn();
 
-        Assert.assertEquals(cadastroPage.dadosIncorretos(), "Dados incorretos");
+        Assert.assertEquals(cadastroPage.emailJaPossuiCadastro(), "Email já cadastrado");
     }
 
     @Test
@@ -114,11 +122,70 @@ public class CadastroStep extends Browser {
     }
 
     @Test
+    public void cadastrarColaboradorComoAdmComSucesso() {
+        loginStep.fazerLoginComoAdm();
+        admPage.clicarNoCadastrarUsuarioBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherSenha();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.clicarNoTipoDoUsuarioColaborador();
+        cadastroPage.clicarNoCadastrarBtn();
+
+        Assert.assertEquals(admPage.verificarSeFoiCadastrado(), "Cadastrar usuário");
+        Assert.assertEquals(admPage.toasMsg(), "Usuario cadastrado");
+    }
+
+    @Test
+    public void cadastrarGestorComoAdmComSucesso() {
+        loginStep.fazerLoginComoAdm();
+        admPage.clicarNoCadastrarUsuarioBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherSenha();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.clicarNoTipoDoUsuarioGestor();
+        cadastroPage.clicarNoCadastrarBtn();
+
+        Assert.assertEquals(admPage.verificarSeFoiCadastrado(), "Cadastrar usuário");
+        Assert.assertEquals(admPage.toasMsg(), "Usuario cadastrado");
+    }
+
+    @Test
+    public void cadastrarFinanceiroComoAdmComSucesso() {
+        loginStep.fazerLoginComoAdm();
+        admPage.clicarNoCadastrarUsuarioBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherSenha();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.clicarNoTipoDoUsuarioFinanceiro();
+        cadastroPage.clicarNoCadastrarBtn();
+
+        Assert.assertEquals(admPage.verificarSeFoiCadastrado(), "Cadastrar usuário");
+        Assert.assertEquals(admPage.toasMsg(), "Usuario cadastrado");
+    }
+
+    @Test
+    public void cadastrarAdmComoAdmComSucesso() {
+        loginStep.fazerLoginComoAdm();
+        admPage.clicarNoCadastrarUsuarioBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherSenha();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.clicarNoTipoDoUsuarioAdm();
+        cadastroPage.clicarNoCadastrarBtn();
+
+        Assert.assertEquals(admPage.verificarSeFoiCadastrado(), "Cadastrar usuário");
+        Assert.assertEquals(admPage.toasMsg(), "Usuario cadastrado");
+    }
+
+    @Test
     public void voltarParaTelaDeLoginComSucesso() {
         loginPage.clicarNoNaoPossuiCadastroBtn();
         cadastroPage.clicarNoVoltarParaTelaDeLoginBtn();
 
         Assert.assertEquals(loginPage.fazerLoginMsg(), "Fazer login");
-
     }
 }

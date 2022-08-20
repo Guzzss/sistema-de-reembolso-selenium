@@ -21,7 +21,7 @@ public class SolicitarReembolsoPage {
     }
 
     public void preencherValor() {
-        BaseTest.sendKeys(valor, "100");
+        BaseTest.sendKeys(valor, "3000");
     }
 
     public void clicarNoAnexoBtn() {

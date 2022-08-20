@@ -13,6 +13,7 @@ public class AtualizarReembolsoPage {
     public static final By tituloErroMsg = By.cssSelector("#root > section > div > form > div:nth-child(1) > small");
     public static final By valorErroMsg = By.cssSelector("#root > section > div > form > div:nth-child(2) > small");
     public static final By anexoErroMsg = By.cssSelector("#root > section > div > form > div:nth-child(3) > small");
+    public static final By toastMsg = By.cssSelector("#swal2-title");
 
     public void limparCampoTitulo() {
         BaseTest.clear(titulo);
@@ -54,4 +55,7 @@ public class AtualizarReembolsoPage {
         return BaseTest.getText(anexoErroMsg);
     }
 
+    public String toastMsg() {
+        return BaseTest.getText(toastMsg);
+    }
 }

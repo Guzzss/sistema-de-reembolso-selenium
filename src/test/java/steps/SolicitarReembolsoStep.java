@@ -2,8 +2,10 @@ package steps;
 
 import org.junit.Assert;
 import org.junit.Test;
+import pages.FinanceiroPage;
 import pages.LoggedPage;
 import pages.SolicitarReembolsoPage;
+import util.BaseTest;
 import util.Browser;
 
 public class SolicitarReembolsoStep extends Browser {
@@ -30,8 +32,7 @@ public class SolicitarReembolsoStep extends Browser {
         solicitarReembolsoPage.preencherValor();
         solicitarReembolsoPage.clicarNoAnexoBtn();
         solicitarReembolsoPage.clicarNoSolicitarReembolsoBtn();
-
-        Assert.assertEquals(loggedPage.tituloReembolso(), "Teste de Reembolso");
+        BaseTest.esperar(FinanceiroPage.toastMsg, "Reembolso Solicitado!");
         Assert.assertEquals(loggedPage.toastMsg(), "Reembolso Solicitado!");
     }
 

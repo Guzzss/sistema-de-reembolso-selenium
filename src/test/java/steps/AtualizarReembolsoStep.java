@@ -3,13 +3,16 @@ package steps;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.AtualizarReembolsoPage;
+import pages.GestorPage;
 import pages.LoggedPage;
+import util.BaseTest;
 import util.Browser;
 
 public class AtualizarReembolsoStep extends Browser {
 
     LoginStep loginStep = new LoginStep();
     LoggedPage loggedPage = new LoggedPage();
+    LoggedStep loggedStep = new LoggedStep();
     AtualizarReembolsoPage atualizarReembolsoPage = new AtualizarReembolsoPage();
     SolicitarReembolsoStep solicitarReembolsoStep = new SolicitarReembolsoStep();
 
@@ -23,7 +26,7 @@ public class AtualizarReembolsoStep extends Browser {
 
     @Test
     public void atualizarReembolsoComSucesso() {
-        solicitarReembolsoStep.solicitarReembolsoComSucesso();
+        solicitarReembolsoStep.solicitarReembolso();
         loggedPage.clicarNoEditarReembolsoBtn();
         atualizarReembolsoPage.limparCampoTitulo();
         atualizarReembolsoPage.preencherTitulo();
@@ -32,18 +35,8 @@ public class AtualizarReembolsoStep extends Browser {
         atualizarReembolsoPage.limparCampoAnexo();
         atualizarReembolsoPage.clicarNoAnexoBtn();
         atualizarReembolsoPage.clicarNoAtualizarReembolsoBtn();
-    }
-
-    @Test
-    public void atualizarReembolsoSemPassarTitulo() {
-        solicitarReembolsoStep.solicitarReembolsoComSucesso();
-        loggedPage.clicarNoEditarReembolsoBtn();
-        atualizarReembolsoPage.limparCampoTitulo();
-        atualizarReembolsoPage.limparCampoValor();
-        atualizarReembolsoPage.preencherValor();
-        atualizarReembolsoPage.limparCampoAnexo();
-        atualizarReembolsoPage.clicarNoAnexoBtn();
-        atualizarReembolsoPage.clicarNoAtualizarReembolsoBtn();
-        Assert.assertEquals(atualizarReembolsoPage.tituloErroMsg(), "Título obrigatorio!");
+        BaseTest.esperar(AtualizarReembolsoPage.toastMsg, "Reembolso atualizado com sucesso");
+        Assert.assertEquals("Reembolso atualizado com sucesso", atualizarReembolsoPage.toastMsg());
+        loggedStep.deletarReembolso();
     }
 }

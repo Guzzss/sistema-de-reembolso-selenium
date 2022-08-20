@@ -24,10 +24,11 @@ public class Browser {
 
         driver = new ChromeDriver();
 
-        wait = new WebDriverWait(driver, 30); // delay
+        wait = new WebDriverWait(driver, 40); // delay
         driver.get(url);
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS); // definir um tempo para iniciar
+     // definir um tempo para iniciar
         driver.manage().window().maximize(); // maximizar a janela do browser
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 
     }
 

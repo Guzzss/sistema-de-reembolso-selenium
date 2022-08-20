@@ -2,6 +2,7 @@ package steps;
 
 import org.junit.Assert;
 import org.junit.Test;
+import pages.GestorPage;
 import pages.LoggedPage;
 import pages.LoginPage;
 import util.Browser;
@@ -11,10 +12,12 @@ public class LoginStep extends Browser {
     LoginPage loginPage = new LoginPage();
 
     LoggedPage loggedPage = new LoggedPage();
+    GestorPage gestorPage = new GestorPage();
 
     @Test
     public void clicarNoNaoPossuiCadastro() {
         loginPage.clicarNoNaoPossuiCadastroBtn();
+
     }
 
     @Test
@@ -42,12 +45,26 @@ public class LoginStep extends Browser {
     }
 
     @Test
+    public void fazerLoginComoFinanceiroComSucesso() {
+        loginPage.preencherEmailFinanceiro();
+        loginPage.preencherSenhaFinanceiro();
+        loginPage.clicarNoEntrarBtn();
+        Assert.assertEquals(loggedPage.bemVindoMsg(), "Bem vindo!");
+    }
+    @Test
     public void fazerLoginComoFinanceiro() {
         loginPage.preencherEmailFinanceiro();
         loginPage.preencherSenhaFinanceiro();
         loginPage.clicarNoEntrarBtn();
     }
 
+    @Test
+    public void fazerLoginComoAdmComSucesso() {
+        loginPage.preencherEmailAdmin();
+        loginPage.preencherSenhaAdmin();
+        loginPage.clicarNoEntrarBtn();
+        Assert.assertEquals(loggedPage.bemVindoMsg(), "Bem vindo!");
+    }
     @Test
     public void fazerLoginComoAdm() {
         loginPage.preencherEmailAdmin();
@@ -96,7 +113,4 @@ public class LoginStep extends Browser {
 
         Assert.assertEquals(loginPage.campoInvalido(), "Email ou Senha inválidos");
     }
-
-
-
 }

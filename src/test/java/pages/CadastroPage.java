@@ -1,7 +1,6 @@
 package pages;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.Name;
 import org.openqa.selenium.By;
 import util.BaseTest;
 
@@ -12,7 +11,7 @@ public class CadastroPage {
     public static final By campoSenha = By.cssSelector("#root > section > div > form > div:nth-child(3) > div > input[type=password]");
     public static final By campoConfirmarSenha = By.cssSelector("#root > section > div > form > div:nth-child(4) > input[type=password]");
 
-    public static final By procurarAnexoBtn = By.cssSelector("#root > section > div > form > div:nth-child(5) > div > input[type=file]");
+    public static final By procurarAnexoBtn = By.cssSelector("#root > section > div > form > div:nth-child(5) > div > div > input[type=file]");
     public static final By cadastrarBtn = By.cssSelector("#root > section > div > form > button");
 
     public static final By voltarParaTelaDeLoginBtn = By.cssSelector("#root > section > div > a");
@@ -21,11 +20,16 @@ public class CadastroPage {
     public static final By campoSenhaErro = By.cssSelector("#root > section > div > form > div:nth-child(3) > small");
     public static final By campoConfirmarSenhaErro = By.cssSelector("#root > section > div > form > div:nth-child(4) > small");
 
+    public static final By tipoDoUsuarioBtn = By.cssSelector("#root > section > div > form > div:nth-child(5) > select");
+    public static final By tipoColaborador = By.cssSelector("#root > section > div > form > div:nth-child(5) > select > option:nth-child(1)");
+    public static final By tipoGestor = By.cssSelector("#root > section > div > form > div:nth-child(5) > select > option:nth-child(2)");
+    public static final By tipoFinanceiro = By.cssSelector("#root > section > div > form > div:nth-child(5) > select > option:nth-child(3)");
+    public static final By tipoAdm = By.cssSelector("#root > section > div > form > div:nth-child(5) > select > option:nth-child(4)");
+
     Faker faker = new Faker();
     String nome = faker.name().firstName();
 
-    String emailFaker = faker.internet().emailAddress();
-    public static final By dadosIncorretos = By.cssSelector("#swal2-title");
+    public static final By toastMsg = By.cssSelector("#swal2-title");
 
     public void preencherNome() {
         BaseTest.sendKeys(campoNome, "Gustavo");
@@ -79,8 +83,28 @@ public class CadastroPage {
         BaseTest.click(voltarParaTelaDeLoginBtn);
     }
 
-    public String dadosIncorretos() {
-        return BaseTest.getText(dadosIncorretos);
+    public String emailJaPossuiCadastro() {
+        return BaseTest.getText(toastMsg);
+    }
+
+    public void clicarNoTipoDoUsuarioColaborador() {
+        BaseTest.click(tipoDoUsuarioBtn);
+        BaseTest.click(tipoColaborador);
+    }
+
+    public void clicarNoTipoDoUsuarioGestor() {
+        BaseTest.click(tipoDoUsuarioBtn);
+        BaseTest.click(tipoGestor);
+    }
+
+    public void clicarNoTipoDoUsuarioFinanceiro() {
+        BaseTest.click(tipoDoUsuarioBtn);
+        BaseTest.click(tipoFinanceiro);
+    }
+
+    public void clicarNoTipoDoUsuarioAdm() {
+        BaseTest.click(tipoDoUsuarioBtn);
+        BaseTest.click(tipoAdm);
     }
 
 }
