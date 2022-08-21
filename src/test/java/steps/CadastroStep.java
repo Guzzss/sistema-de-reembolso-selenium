@@ -87,6 +87,28 @@ public class CadastroStep extends Browser {
     }
 
     @Test
+    public void cadastroComEmailInvalido() {
+        loginPage.clicarNoNaoPossuiCadastroBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailInvalido();
+        cadastroPage.preencherSenha();
+        cadastroPage.clicarNoCadastrarBtn();
+
+        Assert.assertEquals(cadastroPage.campoEmailErro(), "Email inválido!");
+    }
+
+    @Test
+    public void cadastroComSenhaInvalida() {
+        loginPage.clicarNoNaoPossuiCadastroBtn();
+        cadastroPage.preencherNome();
+        cadastroPage.preencherEmailFaker();
+        cadastroPage.preencherSenhaInvalida();
+        cadastroPage.preencherConfirmarSenha();
+        cadastroPage.procurarAnexo();
+        cadastroPage.clicarNoCadastrarBtn();
+        Assert.assertEquals(cadastroPage.campoSenhaErro(), "Obrigatório conter: 8 caracteres, uma letra maiúscula, uma letra minúscula, um número e um caracter especial.");
+    }
+    @Test
     public void cadastroSemPassarSenhas() {
 
         loginPage.clicarNoNaoPossuiCadastroBtn();

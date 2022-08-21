@@ -39,6 +39,10 @@ public class CadastroPage {
         BaseTest.sendKeys(campoEmail, "lol2@dbccompany.com.br");
     }
 
+    public void preencherEmailInvalido() {
+        BaseTest.sendKeys(campoEmail, "lol2@outlook.com.br");
+    }
+
     public void preencherEmailFaker() {
         BaseTest.sendKeys(campoEmail,   nome + "@dbccompany.com.br");
     }
@@ -47,8 +51,17 @@ public class CadastroPage {
         BaseTest.sendKeys(campoSenha, "Gust@vo123");
     }
 
+    public void preencherSenhaInvalida() {
+        BaseTest.sendKeys(campoSenha, "testeSenha");
+    }
+
+
     public void preencherConfirmarSenha() {
         BaseTest.sendKeys(campoConfirmarSenha, "Gust@vo123");
+    }
+
+    public void preencherConfirmarSenhaInvalidaa() {
+        BaseTest.sendKeys(campoConfirmarSenha, "testeSenha");
     }
 
     public void preencherConfirmarSenhaComSenhaDiferente() {
