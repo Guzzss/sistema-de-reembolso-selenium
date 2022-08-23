@@ -17,7 +17,7 @@ public class Browser {
     public void iniciarBrowser() {
 
         // acessar o site
-        String url = "https://sistema-de-rembolso.vercel.app";
+        String url = "https://sistema-de-reembolso.vercel.app/";
 
         //definir onde está o chromedriver
         System.setProperty("webdriver.chrome.driver", "driver/chromedriver.exe");

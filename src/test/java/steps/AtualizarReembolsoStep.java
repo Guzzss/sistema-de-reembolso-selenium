@@ -3,7 +3,6 @@ package steps;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.AtualizarReembolsoPage;
-import pages.GestorPage;
 import pages.LoggedPage;
 import util.BaseTest;
 import util.Browser;
@@ -18,7 +17,7 @@ public class AtualizarReembolsoStep extends Browser {
 
     @Test
     public void limparCampo() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoEditarReembolsoBtn();
         atualizarReembolsoPage.limparCampoTitulo();
         atualizarReembolsoPage.limparCampoValor();

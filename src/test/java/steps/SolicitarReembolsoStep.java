@@ -16,7 +16,7 @@ public class SolicitarReembolsoStep extends Browser {
 
 
     public void solicitarReembolso() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSolicitarReembolsoBtn();
         solicitarReembolsoPage.preencherTitulo();
         solicitarReembolsoPage.preencherValor();
@@ -26,7 +26,7 @@ public class SolicitarReembolsoStep extends Browser {
 
     @Test
     public void solicitarReembolsoComSucesso() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSolicitarReembolsoBtn();
         solicitarReembolsoPage.preencherTitulo();
         solicitarReembolsoPage.preencherValor();
@@ -38,7 +38,7 @@ public class SolicitarReembolsoStep extends Browser {
 
     @Test
     public void solicitarReembolsoSemAnexo() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSolicitarReembolsoBtn();
         solicitarReembolsoPage.preencherTitulo();
         solicitarReembolsoPage.preencherValor();
@@ -49,7 +49,7 @@ public class SolicitarReembolsoStep extends Browser {
 
     @Test
     public void solicitarReembolsoSemPassarTitulo() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSolicitarReembolsoBtn();
         solicitarReembolsoPage.preencherValor();
         solicitarReembolsoPage.clicarNoSolicitarReembolsoBtn();
@@ -59,7 +59,7 @@ public class SolicitarReembolsoStep extends Browser {
 
     @Test
     public void solicitarReembolsoSemPassarValor() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSolicitarReembolsoBtn();
         solicitarReembolsoPage.preencherTitulo();
         solicitarReembolsoPage.clicarNoSolicitarReembolsoBtn();
@@ -69,7 +69,7 @@ public class SolicitarReembolsoStep extends Browser {
 
     @Test
     public void solicitarReembolsoComTodosCamposEmBranco() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSolicitarReembolsoBtn();
         solicitarReembolsoPage.clicarNoSolicitarReembolsoBtn();
 

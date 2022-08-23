@@ -1,11 +1,8 @@
 package pages;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import util.BaseTest;
 
-import java.util.List;
+import util.BaseTest;
 
 public class GestorPage extends BaseTest {
 
@@ -24,8 +21,8 @@ public class GestorPage extends BaseTest {
     public final static By tipoPago = By.cssSelector("#root > section > section > div.sc-fnykZs.jKHkWw > div.sc-fEOsli.mHTFZ > div:nth-child(1) > select > option:nth-child(6)");
     public final static By campoNome = By.cssSelector("#root > section > section > ul > li:nth-child(1) > span:nth-child(2)");
     public final static By campoGestor = By.cssSelector("#root > header > div:nth-child(1) > h2");
-
     public final static By tipoReembolsoMsg = By.cssSelector("#root > section > section > div.sc-fnykZs.jKHkWw > div:nth-child(1) > h2");
+
     public void preencherCampoPesquisa() {
         BaseTest.sendKeys(preencherCampoPesquisa, "Gustavo");
     }

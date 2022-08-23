@@ -10,12 +10,9 @@ public class LoginPage {
     public final static By entrarBtn = By.cssSelector("#root > section > div > form > button");
     public final static By naoPossuiCadastroBtn = By.cssSelector("#root > section > div > a");
     public final static By fazerLoginMsg = By.cssSelector("#root > section > div > div > h1");
-
     public final static By emailErro = By.cssSelector("#root > section > div > form > div:nth-child(1) > small");
     public final static By senhaErro = By.cssSelector("#root > section > div > form > div:nth-child(2) > small");
     public final static By campoInvalido = By.cssSelector("#swal2-title");
-
-
 
     public void preencherEmail() {
         BaseTest.sendKeys(emailCampo, "lol@dbccompany.com.br");
@@ -49,7 +46,7 @@ public class LoginPage {
     public void preencherSenhaAdmin() {
         BaseTest.sendKeys(senhaCampo, "Sua@Senha!23");
     }
-
+    ///// ///// ///// ///// ///// ///// /////
     public void preencherEmailInvalido() {
         BaseTest.sendKeys(emailCampo, "gdfghjdfighdfio@dbccompany.com.br");
     }

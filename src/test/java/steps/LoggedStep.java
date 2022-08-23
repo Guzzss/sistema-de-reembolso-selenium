@@ -32,41 +32,41 @@ public class LoggedStep extends Browser {
 
     @Test
     public void filtrarPorTipoTodos() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.tipoTodos();
     }
 
     @Test
     public void filtrarPorTipoAberto() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.tipoAberto();
         Assert.assertEquals("aberto", loggedPage.statusReembolso());
     }
 
     @Test
     public void filtrarPorTipoAprovadoGestor() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.tipoAprovadoGestor();
         Assert.assertEquals("aprovado gestor", loggedPage.statusReembolso());
     }
 
     @Test
     public void filtrarPorTipoReprovadoGestor() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.tipoReprovadoGestor();
         Assert.assertEquals("reprovado gestor", loggedPage.statusReembolso());
     }
 
     @Test
     public void filtrarPorTipoReprovadoFinanceiro() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.tipoReprovadoFinanceiro();
         Assert.assertEquals("reprovado financeiro", loggedPage.statusReembolso());
     }
 
     @Test
     public void filtrarPorTipoPago() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.tipoPago();
         Assert.assertEquals("fechado(pago)", loggedPage.statusReembolso());
     }
@@ -80,7 +80,7 @@ public class LoggedStep extends Browser {
 
     @Test
     public void fazerLogout() {
-        loginStep.fazerLoginComSucesso();
+        loginStep.fazerLoginComoColaboradorComSucesso();
         loggedPage.clicarNoSairBtn();
         Assert.assertEquals("Fazer login", loginPage.fazerLoginMsg());
     }

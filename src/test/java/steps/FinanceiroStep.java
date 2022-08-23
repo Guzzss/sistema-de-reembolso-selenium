@@ -3,7 +3,6 @@ package steps;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.FinanceiroPage;
-import pages.GestorPage;
 import pages.LoggedPage;
 import util.BaseTest;
 import util.Browser;
@@ -22,7 +21,7 @@ public class FinanceiroStep extends Browser {
         financeiroPage.clicarNoPesquisarBtn();
         financeiroPage.preencherCampoPesquisar();
         financeiroPage.clicarNoPesquisarBtn();
-        Assert.assertEquals("Gabriel", financeiroPage.nomeColaborador());
+        Assert.assertEquals("Gustavo", financeiroPage.nomeColaborador());
     }
 
     @Test

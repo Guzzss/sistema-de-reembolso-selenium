@@ -20,10 +20,6 @@ public class BaseTest extends Elements{
         element(by).click();
     }
 
-    public static void esperarTempo() {
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-    }
-
     public static String getText(By by){
         waitElement(by);
         return element(by).getText();

@@ -12,7 +12,6 @@ public class CadastroStep extends Browser {
     CadastroPage cadastroPage = new CadastroPage();
     LoginStep loginStep = new LoginStep();
     AdmPage admPage = new AdmPage();
-
     LoggedPage loggedPage = new LoggedPage();
 
     @Test
@@ -24,6 +23,7 @@ public class CadastroStep extends Browser {
         cadastroPage.preencherConfirmarSenha();
         cadastroPage.procurarAnexo();
         cadastroPage.clicarNoCadastrarBtn();
+
         BaseTest.esperar(LoggedPage.nomeUsuario, "Gustavo");
         Assert.assertEquals("Gustavo", loggedPage.nomeUsuario());
     }

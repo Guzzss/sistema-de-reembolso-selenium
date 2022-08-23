@@ -17,7 +17,6 @@ public class FinanceiroPage {
     public static final By tipoPago = By.cssSelector("#root > section > section > div.sc-fnykZs.jKHkWw > div.sc-fEOsli.mHTFZ > div:nth-child(1) > select > option:nth-child(6)");
     public static final By reembolsoMsg = By.cssSelector("#root > section > section > div.sc-fnykZs.jKHkWw > div:nth-child(1) > h2");
     public static final By statusReembolsoMsg = By.cssSelector("#root > section > section > ul > li:nth-child(1) > span:nth-child(6)");
-
     public static final By pesquisarBtn = By.cssSelector("#root > section > section > div.sc-fnykZs.jKHkWw > div.sc-fEOsli.mHTFZ > div:nth-child(2) > button");
     public static final By pesquisarCampo = By.cssSelector("#root > section > section > div.sc-fnykZs.jKHkWw > div.sc-fEOsli.mHTFZ > div:nth-child(2) > input[type=text]");
     public static final By nomeColaborador = By.cssSelector("#root > section > section > ul > li:nth-child(1) > span:nth-child(2)");
@@ -97,7 +96,7 @@ public class FinanceiroPage {
     }
 
     public void preencherCampoPesquisar() {
-        BaseTest.sendKeys(pesquisarCampo, "Gabriel");
+        BaseTest.sendKeys(pesquisarCampo, "Gustavo");
     }
 
     public String toastMsg() {

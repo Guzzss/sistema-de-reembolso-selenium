@@ -87,7 +87,6 @@ public class AdmPage {
     public String verificarSeFoiCadastrado() {
         return BaseTest.getText(cadastrarUsuarioBtn);
     }
-
     public String toasMsg() {
         return BaseTest.getText(toasMsg);
     }

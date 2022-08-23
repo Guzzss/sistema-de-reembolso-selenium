@@ -3,7 +3,6 @@ package steps;
 import org.junit.Assert;
 import org.junit.Test;
 import pages.AdmPage;
-import pages.LoggedPage;
 import util.BaseTest;
 import util.Browser;
 
